@@ -21,10 +21,8 @@ document.querySelector('form').addEventListener('submit', (e) => {
         })
 })
 
-// for Json
 document.getElementById('jsonButton').addEventListener('click', sendJson)
 
-// json object
 const cars = [
   {
     model: 'Peugeot',
@@ -39,10 +37,9 @@ const cars = [
     checkups: [2003, 2005, 2007, 2009, 2011, 2013],
   },
 ]
-// api is the path
+
 const jsonUrl = serverUrl + '/api/cars'
 
-// post jeson data
 function sendJson() {
   fetch(jsonUrl, {
     method: 'POST',
@@ -50,7 +47,6 @@ function sendJson() {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-    // convert the object to the string
     body: JSON.stringify(cars),
   })
     .then((response) => response.text())
